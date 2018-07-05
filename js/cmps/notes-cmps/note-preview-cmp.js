@@ -3,8 +3,19 @@ import noteImg from './note-img-cmp.js'
 import noteTodos from './note-todos-cmp.js'
 
 export default {
+    props: ['note'],
     template: `
-    
+    <section>
+        <h1>{{note.title}}</h1>
+        <note-txt v-if="note.txt.hasTxt" :noteTxt="note.txt.txtVal"></note-txt>
+        <note-img v-if="note.img.hasImg" :noteImg="note.img.imgSrc"></note-img>
+        <note-todos v-if="note.todos.hasTodos" :noteTodos="note.todos.todosVal"></note-todos>
+        <!-- <note-txt v-if="note.txt.hasTxt" :noteTxt="note.txt.txtVal"></note-txt>
+        <note-img v-if="note.img.hasImg" :noteImg="note.img.imgSrc"></note-img>
+        <note-todos v-if="note.todos.hasTodos" :noteTodos="note.todos.todosVal"></note-todos> -->
+
+
+    </section>
     
     `,
     components: {
