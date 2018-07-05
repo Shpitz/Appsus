@@ -1,6 +1,5 @@
-import misterEmail from './email-cmp.js'
 import misterKeep from './notes-app-cmp.js'
-
+import misterEmail from './email-app-cmp.js'
 
 
 export default {
