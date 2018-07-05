@@ -32,7 +32,7 @@ var emails = [{
     },
 ]
 
-function getEmails() {-09
+function getEmails() {
     return storageService.load(EMAILS_KEY)
         .then((loadEmails) => {
             if (!loadEmails) {
