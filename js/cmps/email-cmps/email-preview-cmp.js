@@ -1,13 +1,24 @@
+import {eventBus , EVENT_SELECT_EMAIL} from '../../services/eventbus-service.js'
 export default {
     props: ['email'],
     template: `
-    <section>
+    <section  :class="[emailPreview ,{unread: !email.isRead}]" @click="selectEmail(email.id)" >
     <h4>{{email.subject}}</h4>
      <p>{{email.body}}</p>
-    <pre>
-    {{email}}
-    </pre>
     </section>
     
-    `
+    `,
+    data(){
+        return{
+            unread:'unread',
+            emailPreview: 'email-preview'
+            
+        }
+    },
+    methods:{
+        selectEmail(selectedEmailId){
+            eventBus.$emit(EVENT_SELECT_EMAIL, selectedEmailId)
+            this.email.isRead = true
+        }
+    }
 }

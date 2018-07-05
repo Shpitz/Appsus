@@ -1,4 +1,4 @@
-function makeid(length) {
+function makeid(length = 6) {
     var text = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
