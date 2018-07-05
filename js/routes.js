@@ -1,5 +1,5 @@
 import appsusApp from './pages/appsus-app-cmp.js'
-import misterEmail from './pages/email-cmp.js'
+import misterEmail from './pages/email-app-cmp.js'
 import misterNotes from './pages/notes-cmp.js'
 // import about from './pages/about.js'
 

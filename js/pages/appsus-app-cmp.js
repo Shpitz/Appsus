@@ -1,4 +1,4 @@
-import misterEmail from './email-cmp.js'
+import misterEmail from './email-app-cmp.js'
 import misterNotes from './notes-cmp.js'
 
 
