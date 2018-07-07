@@ -4,84 +4,76 @@ import utilsService from "./utils-service.js";
 var NOTES_KEY = 'NOTES_KEY';
 
 var notes = [{
+    id: utilsService.makeid(),
     title: 'feed the dog',
-    txt: {
-        hasTxt: true,
-        txtVal: 'he must ead bonzo',
-    },
-    img: {
-        hasImg: false,
-        imgSrc: ''
-    },
-    todos: {
-        hasTodos: false,
-        todosVal: []
-    },
-    bgColor: 'lightblue',
+    txt: 'he must ead bonzo',
+    img: '',
+    todos: [],
+    bgColor: '#add8e6',
     isPinned: false
 },
 {
+    id: utilsService.makeid(),
     title: 'shopping',
-    txt: {
-        hasTxt: true,
-        txtVal: 'Rami is Gof',
-    },
-    img: {
-        hasImg: false,
-        imgSrc: ''
-    },
-    todos: {
-        hasTodos: true,
-        todosVal: ['dress', 'flowers', 'cookies']
-    },
-    bgColor: 'orange',
+    txt: 'puki lapushner',
+    img: '',
+    todos: ['dress', 'flowers', 'cookies'],
+    bgColor: '#ffa500',
     isPinned: false
 },
 {
+    id: utilsService.makeid(),
     title: 'at the Eurovision',
-    txt: {
-        hasTxt: true,
-        txtVal: 'SO EXCITEDDDDDD!!!!',
-    },
-    img: {
-        hasImg: true,
-        imgSrc: '../img/itzik.jpg'
-    },
-    todos: {
-        hasTodos: false,
-        todosVal: []
-    },
-    bgColor: 'lightgreen',
+    txt: 'SO EXCITEDDDDDD!!!!',
+    img: '../img/itzik.jpg',
+    todos: [],
+    bgColor: '#90ee90',
     isPinned: false
 }
 ]
+
+
+function createEmptyNote() {
+    return {
+        id: '',
+        title: '',
+        txt: '',
+        img: '',
+        todos: [],
+        bgColor: '#ffffff',
+        isPinned: false
+    };
+}
+
+function addNote(note) {
+    if (note.id) {
+        
+        console.log('note.id: ', note.id);
+        var noteIdx = notes.findIndex(currNote => currNote.id === note.id);
+        // notes[noteIdx] = note;
+        notes.splice(noteIdx, 1, note)
+    } else {
+        note.id = utilsService.makeid()
+        notes.push(note);
+    }
+    storageService.store(NOTES_KEY, notes)
+}
 
 function getNotes() {
-    return Promise.resolve(notes)
+    var loadNotes = storageService.load(NOTES_KEY)
+    if (!loadNotes) {
+        console.log(notes);
+        return Promise.resolve(notes)
+    } else {
+        notes = loadNotes
+        return Promise.resolve(notes)
+    }
+
 }
 
-
-var emptyNote = [
-    {
-        title: '',
-        txt: {
-            hasTxt: false,
-            txtVal: '',
-        },
-        img: {
-            hasImg: false,
-            imgSrc: 'img src"'
-        },
-        todos: {
-            hasTodos: false,
-            todosVal: []
-        },
-        bgColor: 'lightblue',
-        isPinned: false
-    }
-]
-
-
+//כל פונקציה שבאקספורט צריכה להחזיר פרומיס על מנת שהאפליקציה תהיה אסינכרונית
 export default {
     getNotes,
+    createEmptyNote,
+    addNote,
 }

@@ -33,6 +33,8 @@ export default {
     },
     computed: {
         emailsToDiplay() {
+            console.log('rmails to display has been activated');
+            
             return this.emails
         },
        
