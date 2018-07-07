@@ -25,7 +25,7 @@ var emails = [{
     {
         id: utilsService.makeid(),
         subject: 'dodo',
-        body: 'i am a DODO',
+        body: 'i am a itzik DODO',
         isRead: false,
         sentAt: '',
         sentTo: 'foo'
