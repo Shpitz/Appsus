@@ -33,12 +33,24 @@
 .email-details .email-msg{
     padding: 1em;
 }
+.email-details button{
+    padding: 0.5em;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 50px;
+    /* border: transparent;   */
+}
 .email-list {
     display: flex;
+    flex-direction: column;
     height: 100vh;
     width: 30%;
 }
-
+.email-filter{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em
+}
 .email-preview.unread {
     background-color: lightblue;
 }
