@@ -1,70 +1,73 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
 .email-app {
     display: flex;
     width: 100%;
 }
 
-.email-details {
+.email-details,
+.email-compose {
     display: flex;
     flex-direction: column;
     width: 70%;
     height: 100vh;
     border: 1px solid grey;
 }
-.email-details .email-header{
+
+.email-compose textarea {
+    width: 100%;
+    height: 50vh;
+    border: transparent;
+}
+
+.email-header {
     display: flex;
     flex-direction: column;
     padding: 1em;
-    border-bottom: 1px solid grey;    
+    border-bottom: 1px solid grey;
 }
 
-.email-details .email-msg{
+.email-msg {
     padding: 1em;
 }
-.email-details button{
+
+.email-details button {
     padding: 0.5em;
     height: fit-content;
     width: fit-content;
     border-radius: 50px;
     /* border: transparent;   */
 }
+
 .email-list {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 90%;
     width: 30%;
 }
-.email-filter{
+
+.email-filter {
     display: flex;
     flex-direction: column;
     padding: 0.5em
 }
+
 .email-preview.unread {
     background-color: lightblue;
 }
 
 .email-preview {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     height: fit-content;
     background-color: lightgrey;
-    height: fit-content;
     cursor: pointer;
     border-bottom: 1px solid darkgrey;
     padding: 0.5em;
 }
-
+.mail-info{
+    display: flex;
+    flex-direction: column;
+}
 .preview-container {
     display: flex;
     flex-direction: column;

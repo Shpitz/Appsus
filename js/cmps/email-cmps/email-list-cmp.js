@@ -5,7 +5,8 @@ export default {
     props: ['emails'],
     template: `
     <section class="email-list">
-    <email-filter :emails="emails"></email-filter>
+        <button @click="newMail">Add Email</button>
+        <email-filter :emails="emails"></email-filter>
     <div class="preview-container">
         <email-preview v-for="email in emails" :email="email"></email-preview>
     </div>
@@ -16,5 +17,10 @@ export default {
         emailPreview,
         emailFilter,
         emailCompose,
+    },
+    methods:{
+        newMail(){
+            this.$emit('new-mail')
+        }
     }
 }
