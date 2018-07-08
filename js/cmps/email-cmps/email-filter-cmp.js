@@ -1,27 +1,24 @@
 import {
     eventBus,
     EVENT_FILTER_EMAILS,
-    EVENT_SORT_TITLE,
-    EVENT_SORT_DATE
+    EVENT_TOOGLE_MENU,
 } from '../../services/eventbus-service.js'
 export default {
     template: `
     <section class="email-filter">
-        <div class="sort">
-            <button @click="sortByTitle">by title</button>
-            <button @click="sortByDate">by date</button>
-        </div>
+    <button class="menu" @click="toggleNav">Menu</button>
         <input type="text" v-model="filter.txt" @input="setFilter" placeholder="Enter Key Word" />
-        <form @input="setFilter">
-            <input type="radio" name="all" value="All" v-model="filter.emailStatus">
-            <label>All</label>
-            <input type="radio"  name="all" value="Read" v-model="filter.emailStatus">
-            <label>Read</label>
-            <input type="radio" name="all" value="Unread" v-model="filter.emailStatus">
-            <label>Unread</label>
-            <br>
-            <span>Checked names: {{ filter.emailStatus }}</span>
+        <form class="radio" @input="setFilter">
+
+                <input type="radio" id="radio1" name="all" value="All" v-model="filter.emailStatus">
+                <label for="radio1">All</label>
+
+                <input type="radio" id="radio2" name="all" value="Read" v-model="filter.emailStatus">
+                <label for="radio2">Read</label>
+                <input type="radio" id="radio3" name="all" value="Unread" v-model="filter.emailStatus">
+                    <label for="radio3">Unread</label>
         </form>
+          
     </section>
     `,
     data() {
@@ -33,25 +30,14 @@ export default {
         }
     },
     methods: {
-        f() {
-            console.log(this.filter);
-        },
         setFilter() {
             console.log(this.filter);
-            eventBus.$emit(EVENT_FILTER_EMAILS , this.filter)
+            eventBus.$emit(EVENT_FILTER_EMAILS, this.filter)
         },
-        sortByTitle() {
-            debugger
-            eventBus.$emit(EVENT_SORT_TITLE)
-        },
-        sortByDate() {
-            eventBus.$emit(EVENT_SORT_DATE)
-        },
+        toggleNav() {
+            eventBus.$emit(EVENT_TOOGLE_MENU)
+        }
+
 
     },
-    watch: {
-        filter() {
-            console.log(this.filter);
-        }
-    }
 }

@@ -46,7 +46,6 @@ export default {
         //on load, the data is retrieved by this function. the data is created when the component is called
         noteService.getNotes()
             .then(loadNotes => this.notes = loadNotes)
-            console.log('notes: ', this.notes);
     },
     computed: {
         notesToShow: function () {
