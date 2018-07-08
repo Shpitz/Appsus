@@ -5,25 +5,25 @@ export default {
     props: ['notes'],
 
     template: `
-    <section>
-<!-- <ul>
+    <section class="notes-list">
+<!-- <ul v-if="!hasPinned">
 
     <li v-for="note in notes" :style="{ background: note.bgColor}" :id="note.id" @click="selectNote(note)">
         <note-preview :note="note"></note-preview>
     </li>
 </ul> -->
 
-<div>
-    <p>Pinned</p>
+<div class="note-list">
+<p v-if="hasPinned">Pinned</p>
 
-<ul class="pinned-list">
-<li v-for="note in notes" v-if="note.isPinned" :style="{ background: note.bgColor}" :id="note.id" @click="selectNote(note)">
+<ul class="pinned-list" v-if="hasPinned">
+<li v-for="note in notes" v-if="note.isPinned" :id="note.id" @click="selectNote(note)">
         <note-preview :note="note"></note-preview>
     </li>
 </ul>
-<p>Others</p>
+<p v-if="hasPinned">Others</p>
 <ul class="others-list">
-<li v-for="note in notes" v-if="!note.isPinned" :style="{ background: note.bgColor}" :id="note.id" @click="selectNote(note)">
+<li v-for="note in notes" v-if="!note.isPinned" :id="note.id" @click="selectNote(note)">
         <note-preview :note="note"></note-preview>
     </li>
 </ul>
@@ -38,18 +38,32 @@ export default {
     data() {
 
         return {
-            
-          
+
         }
+    },
+    created() {
+        console.log(this.notes);
+        
+
+    },
+    computed: {
+
+        hasPinned() {
+            return this.notes.some(note => note.isPinned)
+
+        }
+
+
+
     },
     methods: {
         selectNote(note) {
             this.$emit('note-selected', note);
         }
     },
-   
+
     components: {
         notePreview,
-        
+
     }
 }

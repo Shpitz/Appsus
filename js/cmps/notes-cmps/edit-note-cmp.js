@@ -7,9 +7,7 @@ import addNote from './add-note-cmp.js'
 export default {
     props: ['selectedNote'],
     template: `
-    <section>
-
-
+    <section class="edit-note" @click="cancelNote">
         <add-note v-if="selectedNote" 
         :selectedNote="selectedNote" 
         @save-note="saveEditedNote" 
@@ -17,6 +15,7 @@ export default {
         @cancel-note="cancelNote" 
         @pin-note="pinNote" 
         @unpin-note="unPinNote"
+        @click.native.stop
         ></add-note>
     </section>
     
@@ -29,8 +28,9 @@ export default {
         deleteNote(editedNote) {
             this.$emit('delete-note', editedNote)
         },
-        cancelNote(editedNote) {
-            this.$emit('cancel-note', editedNote)
+        cancelNote(ev) {
+            // if(ev.path[0].classList[0] !== 'edit-note') return
+            this.$emit('cancel-note')
         },
         pinNote(editedNote) {
             this.$emit('pin-note', editedNote)

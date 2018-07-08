@@ -1,10 +1,10 @@
 export default {
     props: ['task'],
     template: `
-    <section>
-        <li class="tasks__item">
-            <button :class="className" @click.self="$emit('complete')">{{task.title}}</button>
-            <button class="tasks__item__remove button alert pull-right" @click="$emit('remove')">
+    <section class="todo-section">
+        <li class="tasks__item todo">
+            <button :class="className" @click.stop="$emit('complete')">{{task.title}}</button>
+            <button class="tasks__item__remove button alert pull-right" @click.stop="$emit('remove')">
                 <i class="fa fa-times"></i>
             </button>
         </li>

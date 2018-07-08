@@ -5,16 +5,11 @@ import tasks from './note-todos-cmp.js'
 export default {
     props: ['note'],
     template: `
-    <section>
+    <section class="note-preview" :style="{ background: note.bgColor}">
         <note-img v-if="note.img" :noteImg="note.img"></note-img>
         <h1>{{note.title}}</h1>
         <note-txt v-if="note.txt" :noteTxt="note.txt"></note-txt>
-        <tasks v-if="note.todos.length" :tasks="note.todos"></tasks>
-        <!-- <note-txt v-if="note.txt.hasTxt" :noteTxt="note.txt.txtVal"></note-txt>
-        <note-img v-if="note.img.hasImg" :noteImg="note.img.imgSrc"></note-img>
-        <note-todos v-if="note.todos.hasTodos" :noteTodos="note.todos.todosVal"></note-todos> -->
-
-
+        <tasks v-if="note.todos.length" :tasks="note.todos" class="note-preview-tasks"></tasks>
     </section>
     
     `,

@@ -7,12 +7,14 @@ export default {
     // },
     template: `
     <section class="todos">
-        <input type="text" class="input-group-field" v-model="newTask" @keyup.enter="addTask" placeholder="New task">
-        <span class="input-group-button">
-            <button @click="addTask" class="button">
-                <i class="fa fa-plus"></i>
-            </button>
-        </span>
+        <div class="todo-new-task">
+            <input type="text" class="input-group-field" v-model="newTask" @click.stop @keyup.enter="addTask" placeholder="New task">
+            <span class="input-group-button">
+                <button @click.stop="addTask" class="button">
+                    <i class="fa fa-plus add-task-btn"></i>
+                </button>
+            </span>
+        </div>
 
         <transition-group name="fade" tag="ul" class="tasks__list no-bullet">
             <task-item v-for="(task, index) in tasks" @remove="removeTask(index)" @complete="completeTask(task)" :task="task" :key="task.title">
@@ -42,7 +44,10 @@ export default {
             this.tasks.splice(index, 1);
         },
         completeTask(task) {
+            // console.log('ev', ev);
+            
             task.completed = !task.completed;
+
         },
     }
 }

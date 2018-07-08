@@ -27,16 +27,15 @@ export default {
                     
         <!-- this is where we send the notes prop to the note list -->
 
-        <note-list :notes="notesToShow" @note-selected="setSelectedNote" class="notes-list"></note-list>
+        <note-list :notes="notesToShow" @note-selected="setSelectedNote" class="app-note-list"></note-list>
 
-        <pre>{{notes}}</pre>
 
     </section>
     
     `,
     data() {
         return {
-            notes: {},
+            notes: [],
             selectedNote: null,
             filter: null,
             pinned: 0,

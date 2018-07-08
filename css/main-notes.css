@@ -1,19 +1,44 @@
 @import './todos.css';
 
+.notes-app body, .notes-app html{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.notes-app img {
+    width: 300px;
+    align-self: center;
+    height: auto;
+}
+
 .notes-app {
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
     align-items: center
+}
+li {
+    cursor: pointer;
 }
 
 .add-note {
     display: flex;
     flex-direction: column;
+    padding: 7px;
+    background-color: white;
+    box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
+    /* border: 1px solid black; */
+
     /* width: 300px; */
 }
 
 .add-note input.take-note{
     align-items: center;
+}
+.add-note input {
+    font-size: 0.8em;
 }
 
 .note-created{
@@ -35,10 +60,116 @@
 }
 .add-task-area{
     display: flex;
+    margin-top: 5px;
+    border-bottom: black solid 0.8px;
+    border-top: black solid 0.8px;
     
 }
 .edit-btn-area {
     display: flex;
 
 }
+
+.edit-note {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(81, 109, 82, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    border: 1px solid black;
+}
+
+.note-preview {
+    border: solid black 1px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* .notes-list ul {
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+.notes-list li {
+    margin: 5px;
+    /* width: 25%; */
+}
+.pinned-list, .others-list {
+    column-count: 3;
+}
+/* .pinned-list>lo, .others-list>li {
+    width: 100%
+} */
+
+/* .pinned-list>li, .others-list>li {
+    width: 25%;
+} */
+
+.note-preview {
+    padding: 10px;
+}
+
+.note-preview .tasks__list {
+    padding: 1px;
+}
+.note-preview h1 {
+    font-size: 1.5em;
+    margin: 0;
+}
+/* .note-preview li {
+    padding: 2px;
+} */
+
+.note-preview p {
+    font-size: 1.5em;
+    word-break: break-word;
+    margin: 0;
+}
+
+
+input {
+    padding: 5px;
+    border: none;
+    /* font-size: 1.1em; */
+}
+
+textarea {
+    padding: 5px;
+    border: none;
+    /* font-size: 2em;   */
+}
+
+.todo-new-task {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.add-task-btn {
+    height: 100%;
+}
+
+.file-container{
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 900px){
+    .pinned-list, .others-list {
+        column-count: 2;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .pinned-list, .others-list {
+        column-count: 1;
+    }
+}
+
+
 

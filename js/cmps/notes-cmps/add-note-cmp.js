@@ -12,7 +12,7 @@ export default {
                 <div class="txt-area">
                     <input type="text" placeHolder="Title" v-model="newNote.title">
     
-                    <textarea rows="4" cols="50" type="text" placeHolder="Take a note..." v-model="newNote.txt">{{newNote.txt}}</textarea>
+                    <textarea rows="2" cols="50" type="text" placeHolder="Take a note..." v-model="newNote.txt">{{newNote.txt}}</textarea>
 
                 </div>
                 <div class="img-area">
@@ -39,7 +39,8 @@ export default {
 
 
                     <transition-group name="fade" tag="ul" class="tasks__list no-bullet" v-model="newNote.todos">
-                    <li v-for="(newTask, index) in newNote.todos" @remove="removeTask(index)" @complete="completeTask(newTask)" :key="newTask.title">
+                    <li v-for="(task, index) in newNote.todos" @remove="removeTask(index)" @complete="completeTask(newTask)" :key="task.title">
+                        {{task.title}}
                     </li>
                     </transition-group>
                 </div>
