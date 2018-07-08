@@ -14,11 +14,10 @@ export default {
     template: `
     <section class="email-list flex coulmn">
     <div class="status-container flex column align-center">
-                       <h3>Status Bar</h3>
-                         <email-status :readCount="getReadEmailStatus"></email-status>
-                        </div>
-        <div class="flex">
-            
+        <h3>Status Bar</h3>
+        <email-status :readCount="getReadEmailStatus"></email-status>
+    </div>
+        <div class="flex">        
             <div v-show="navBar" class="sideNav">
                 <button @click="newMail">Add Email</button>
                 <ul class="side-list flex column clean-list">
@@ -26,8 +25,7 @@ export default {
                     <li @click="setFilter('Unread')"><i class="fas fa-envelope"> </i> Unread</li>
                     <li @click="setFilter('Read')"><i class="fas fa-envelope-open"></i> Read</li>
                 </ul>
-                   
-                    </div>
+            </div>
             <div :class="[previewContainer ,{miniList: navBar}]">
                 <ul class="mail-list-info flex space-between">
                 <li><button @click="sortByTitle">Subject</button></li>
@@ -38,7 +36,6 @@ export default {
                 <email-preview v-for="email in emails" :email="email"></email-preview>
             </div>
         </div>
-       
     </section>
     
     `,

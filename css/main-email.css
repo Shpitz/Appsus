@@ -113,7 +113,6 @@ button:hover {
     background-color: whitesmoke;
 }
 
-
 .new-email-container,
 .email-container {
     display: flex;
@@ -175,7 +174,6 @@ button:hover {
     padding-right: 10px;
     margin-bottom: 20px;
 }
-
 
 .new-email-header input {
     width: 70%;
@@ -280,7 +278,7 @@ button:hover {
     padding: 0;
 }
 
-.email-preview li{
+.email-preview li {
     width: 110px;
     height: 40px;
     overflow: hidden;
@@ -290,12 +288,14 @@ button:hover {
     margin: 0;
 }
 
-.email-preview ul:hover{
+.email-preview ul:hover {
     background-color: beige;
 }
-button:focus{
+
+button:focus {
     border: transparent;
 }
+
 .email-preview ul li button {
     border: transparent;
     background-color: transparent;
@@ -331,7 +331,7 @@ button:focus{
     border-radius: 50px;
 }
 
-.status-container{
+.status-container {
     width: 100%;
     padding: 20px;
     background-color: slategray;

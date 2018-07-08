@@ -19,10 +19,10 @@ export default {
     `,
     data() {
         return {
-            unread:'unread',
+            unread: 'unread',
         }
     },
-    created(){
+    created() {
         // this.getIsReadIcon()
 
     },
@@ -34,22 +34,22 @@ export default {
         toggleIsRead() {
             this.email.isRead = !this.email.isRead
         },
-        deleteMail(emailId){
+        deleteMail(emailId) {
             console.log(emailId);
-            
-            eventBus.$emit(EVENT_DELETE_EMAIL ,emailId )
+
+            eventBus.$emit(EVENT_DELETE_EMAIL, emailId)
         }
-       
+
     },
     computed: {
         isRead() {
             console.log(this.email.isRead);
             if (this.email.isRead === true) {
                 return false
-            } else{
+            } else {
                 return true
-            } 
+            }
         },
-        
+
     }
 }

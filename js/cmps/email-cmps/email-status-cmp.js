@@ -6,8 +6,8 @@ export default {
     <progress-bar :width="readCount"></progress-bar>
     </section>
     `,
-    props:['readCount'],
-    components:{
+    props: ['readCount'],
+    components: {
         progressBar,
     }
 }

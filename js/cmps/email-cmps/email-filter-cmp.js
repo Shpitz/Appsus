@@ -17,7 +17,6 @@ export default {
                 <label for="radio2">Read</label>
                 <input type="radio" id="radio3" name="all" value="Unread" v-model="filter.emailStatus">
                     <label for="radio3">Unread</label>
-            <br>
         </form>
           
     </section>

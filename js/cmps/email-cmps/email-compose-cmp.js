@@ -44,7 +44,7 @@ export default {
             this.$emit('save-email', this.newEmail)
             this.newEmail = this.emptyMail()
         },
-        returnHome(ev){
+        returnHome(ev) {
             console.log(ev.path[0].classList[0], '****');
             if (ev.path[0].classList[0] !== 'email-compose' && ev.path[0].classList[0] !== 'fa') return // shahar's fault
             this.$emit('return-home')
