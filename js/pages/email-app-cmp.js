@@ -14,10 +14,10 @@ import {
 export default {
     template: `
     <section class="email-app" >
-    <email-filter v-if="!selectedEmail" :emails="emails"></email-filter>
-    <email-list  @new-mail="newMail" :emails="emailsToDiplay" class="{sideList: selectedEmail}" ></email-list>
-    <email-details v-if="selectedEmail" @return-home="returnHome" :email="selectedEmail"></email-details>
-    <email-compose v-if="newEmail" @return-home="returnHome" @save-email="saveEmail"></email-compose>
+        <email-filter v-if="!selectedEmail" :emails="emails"></email-filter>
+        <email-list  @new-mail="newMail" :emails="emailsToDiplay" class="{sideList: selectedEmail}" ></email-list>
+        <email-details v-if="selectedEmail" @return-home="returnHome" :email="selectedEmail"></email-details>
+        <email-compose v-if="newEmail" @return-home="returnHome" @save-email="saveEmail"></email-compose>
     </section>
     
     `,

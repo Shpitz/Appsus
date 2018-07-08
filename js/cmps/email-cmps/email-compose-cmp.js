@@ -46,7 +46,7 @@ export default {
         },
         returnHome(ev) {
             console.log(ev.path[0].classList[0], '****');
-            if (ev.path[0].classList[0] !== 'email-compose' && ev.path[0].classList[0] !== 'fa') return // shahar's fault
+            if (ev.path[0].classList[0] !== 'email-compose' && ev.path[0].classList[0] !== 'fa' && ev.path[0].classList[0] !== 'home') return // shahar's fault
             this.$emit('return-home')
         }
     },
