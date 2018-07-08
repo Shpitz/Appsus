@@ -81,6 +81,7 @@ function removeEmailById(id) {
         return email.id === id
     })
     emails.splice(emailIdx, 1)
+    storageService.store(EMAILS_KEY, emails)
 }
 
 function saveEmail(newEmail) {
