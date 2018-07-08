@@ -11,7 +11,7 @@ var emails = [{
         subject: 'momo',
         body: 'i am a momo',
         isRead: false,
-        sentAt: '',
+        sentAt: '1-2-2018',
         sentTo: 'fofo'
     },
     {
@@ -19,7 +19,7 @@ var emails = [{
         subject: 'popo',
         body: 'i am a popo',
         isRead: false,
-        sentAt: '',
+        sentAt: '1-7-2018',
         sentTo: 'poo'
     },
     {
@@ -27,7 +27,7 @@ var emails = [{
         subject: 'dodo',
         body: 'i am a itzik DODO',
         isRead: false,
-        sentAt: '',
+        sentAt: '5-5-2016',
         sentTo: 'foo'
     },
     {
@@ -35,7 +35,7 @@ var emails = [{
         subject: 'momo',
         body: 'i am a momo',
         isRead: false,
-        sentAt: '',
+        sentAt: '30-2-2005',
         sentTo: 'fofo'
     },
     {
@@ -43,7 +43,7 @@ var emails = [{
         subject: 'popo',
         body: 'i am a popo',
         isRead: false,
-        sentAt: '',
+        sentAt: '21-2-1997',
         sentTo: 'poo'
     },
     {
@@ -51,20 +51,20 @@ var emails = [{
         subject: 'dodo',
         body: 'i am a DODO',
         isRead: false,
-        sentAt: '',
+        sentAt: '3-12-2017',
         sentTo: 'foo'
     },
 ]
 
 function getEmails() {
-    var loadEmails =  storageService.load(EMAILS_KEY)
-            if (!loadEmails) {
-                console.log(emails);
-                return Promise.resolve(emails)
-            } else {
-                emails = loadEmails
-                return Promise.resolve(emails)
-            }
+    var loadEmails = storageService.load(EMAILS_KEY)
+    if (!loadEmails) {
+        console.log(emails);
+        return Promise.resolve(emails)
+    } else {
+        emails = loadEmails
+        return Promise.resolve(emails)
+    }
 
 }
 
@@ -82,8 +82,15 @@ function removeEmailById(id) {
     })
     emails.splice(emailIdx, 1)
 }
+
+function saveEmail(newEmail) {
+    emails.unshift(newEmail)
+    storageService.store(EMAILS_KEY, emails)
+}
+
 export default {
     getEmails,
     getEmailById,
     removeEmailById,
+    saveEmail,
 }
