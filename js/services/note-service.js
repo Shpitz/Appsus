@@ -64,12 +64,14 @@ function addNote(note) {
 
 function getNotes() {
     var loadNotes = storageService.load(NOTES_KEY)
+    console.log(loadNotes);
+    
     if (!loadNotes) {
         console.log(notes);
         return Promise.resolve(notes)
     } else {
-        notes = loadNotes
-        return Promise.resolve(notes)
+    
+        return Promise.resolve(loadNotes)
     }
 
 }
