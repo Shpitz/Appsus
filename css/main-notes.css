@@ -1,0 +1,44 @@
+@import './todos.css';
+
+.notes-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.add-note {
+    display: flex;
+    flex-direction: column;
+    /* width: 300px; */
+}
+
+.add-note input.take-note{
+    align-items: center;
+}
+
+.note-created{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.txt-area {
+    display: flex;
+    flex-direction: column;
+}
+.img-area {
+    display: flex;
+    flex-direction: column;
+}
+.todos-area {
+    display: flex;
+    flex-direction: column;
+}
+.add-task-area{
+    display: flex;
+    
+}
+.edit-btn-area {
+    display: flex;
+
+}
+

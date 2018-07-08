@@ -10,11 +10,35 @@ export default {
     <section>
 
 
-        <add-note v-if="selectedNote" :selectedNote="selectedNote"></add-note>
+        <add-note v-if="selectedNote" 
+        :selectedNote="selectedNote" 
+        @save-note="saveEditedNote" 
+        @delete-note="deleteNote" 
+        @cancel-note="cancelNote" 
+        @pin-note="pinNote" 
+        @unpin-note="unPinNote"
+        ></add-note>
     </section>
     
     
     `,
+    methods: {
+        saveEditedNote(editedNote) {
+            this.$emit('save-note', editedNote)
+        },
+        deleteNote(editedNote) {
+            this.$emit('delete-note', editedNote)
+        },
+        cancelNote(editedNote) {
+            this.$emit('cancel-note', editedNote)
+        },
+        pinNote(editedNote) {
+            this.$emit('pin-note', editedNote)
+        },
+        unPinNote(editedNote) {
+            this.$emit('unpin-note', editedNote)
+        },
+    },
     components: {
         noteTxt,
         noteImg,

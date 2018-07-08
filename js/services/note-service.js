@@ -17,7 +17,11 @@ var notes = [{
     title: 'shopping',
     txt: 'puki lapushner',
     img: '',
-    todos: ['dress', 'flowers', 'cookies'],
+    todos: [
+            {title: 'deress', completed: false},
+            {title: 'flowers', completed: false},
+            {title: 'cookies', completed: false}
+            ],
     bgColor: '#ffa500',
     isPinned: false
 },
@@ -47,14 +51,13 @@ function createEmptyNote() {
 
 function addNote(note) {
     if (note.id) {
-        
         console.log('note.id: ', note.id);
         var noteIdx = notes.findIndex(currNote => currNote.id === note.id);
         // notes[noteIdx] = note;
         notes.splice(noteIdx, 1, note)
     } else {
         note.id = utilsService.makeid()
-        notes.push(note);
+        notes.unshift(note);
     }
     storageService.store(NOTES_KEY, notes)
 }
@@ -71,9 +74,23 @@ function getNotes() {
 
 }
 
+function deleteNote(note) {
+    if (note.id) {
+        var noteIdx = notes.findIndex(currNote => currNote.id === note.id);
+        notes.splice(noteIdx, 1);        
+    }
+    storageService.store(NOTES_KEY, notes)
+}
+
+// function pinNote(note) {
+
+// }
+
 //כל פונקציה שבאקספורט צריכה להחזיר פרומיס על מנת שהאפליקציה תהיה אסינכרונית
 export default {
     getNotes,
     createEmptyNote,
     addNote,
+    deleteNote,
+    // pinNote,
 }
