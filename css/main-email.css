@@ -194,13 +194,14 @@ button:hover {
 .mail-list-info {
     list-style-type: none;
     margin: 0;
-    padding: 0.5em;
-    background-color: lightgray;
-    border-bottom: 0.5px solid black;
+    padding: 1em;
+    background-color: rgba(119, 136, 153, 0.5);
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.404);
 }
 
 .mail-list-info li button {
     margin: 0;
+    padding: 0;
     border: transparent;
     background-color: transparent;
     cursor: pointer;
@@ -210,6 +211,7 @@ button:hover {
     display: flex;
     background-color: slategray;
     padding: 1em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.192); 
     align-items: center;
     min-width: 400px;
 }
@@ -275,7 +277,7 @@ button:hover {
     max-width: 25%;
     margin: 0;
     /* margin-right: 50px; */
-    padding: 0;
+    padding: 1em;
 }
 
 .email-preview li {
